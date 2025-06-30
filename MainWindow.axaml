@@ -1,0 +1,83 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="800" Height="450"
+        x:Class="midi2iwmAvalonia.MainWindow"
+        Title="I Wanna Maker MIDI转换器"
+        CanResize="True">
+    <Grid>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="帮助">
+                <MenuItem Header="关于" Click="ShowAboutWindow" />
+                <Separator />
+                <MenuItem Header="退出" Click="Quit" />
+            </MenuItem>
+        </Menu>
+        <TextBlock />
+        <TextBlock Text="MIDI文件位置:" Margin="25,40,0,0" />
+        <TextBox Height="14" Width="600" IsReadOnly="True" TextWrapping="NoWrap" Name="FileLoc" Margin="40,33,0,0"
+                 VerticalAlignment="Top" />
+        <Button Margin="0,33,20,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="MidiFileSelect">选择</Button>
+        <TextBlock Text="MIDI文件分析状态：" Margin="25,80,0,0" />
+        <TextBlock Text="请打开文件..." Margin="0,80,400,0" HorizontalAlignment="Right" Name="FileStatus" />
+        <TextBlock Text="请选择音轨：" Margin="25 120,0,0" />
+        <ComboBox Margin="200,115,0,0" Name="TrackSel" SelectionChanged="TrackProcess" />
+        <TextBlock Text="音乐时长：" Margin="500,120,0,0">
+            <Run Name="MidiTime">0:00:00.0</Run>
+        </TextBlock>
+        <TextBlock Text="请选择音效：" Margin="25,160,0,0" />
+        <ComboBox Margin="200,155,0,0" Name="SfxSel">
+            <ComboBoxItem>小黄鸭</ComboBoxItem>
+            <ComboBoxItem>泡泡</ComboBoxItem>
+            <ComboBoxItem>开关</ComboBoxItem>
+            <ComboBoxItem>叮~(铃声)</ComboBoxItem>
+            <ComboBoxItem>！</ComboBoxItem>
+            <ComboBoxItem>弹簧</ComboBoxItem>
+            <ComboBoxItem>喇叭</ComboBoxItem>
+            <ComboBoxItem>OK</ComboBoxItem>
+            <ComboBoxItem>碎了</ComboBoxItem>
+            <ComboBoxItem>打击</ComboBoxItem>
+            <ComboBoxItem>激光枪</ComboBoxItem>
+            <ComboBoxItem>风声</ComboBoxItem>
+            <ComboBoxItem>哨子</ComboBoxItem>
+            <ComboBoxItem>翁~（几个星星图标）</ComboBoxItem>
+            <ComboBoxItem>忍者</ComboBoxItem>
+            <ComboBoxItem>鼓掌</ComboBoxItem>
+            <ComboBoxItem>打鼓</ComboBoxItem>
+            <ComboBoxItem>钢琴</ComboBoxItem>
+            <ComboBoxItem>贝斯</ComboBoxItem>
+            <ComboBoxItem>庆祝</ComboBoxItem>
+            <ComboBoxItem>唔！</ComboBoxItem>
+            <ComboBoxItem>笑声</ComboBoxItem>
+            <ComboBoxItem>惊悚紧张</ComboBoxItem>
+            <ComboBoxItem>沙锤</ComboBoxItem>
+            <ComboBoxItem>打鼓2（等当~）</ComboBoxItem>
+            <ComboBoxItem>禁止</ComboBoxItem>
+            <ComboBoxItem>瓶子</ComboBoxItem>
+            <ComboBoxItem>敲木头</ComboBoxItem>
+            <ComboBoxItem>叮~（玻璃）</ComboBoxItem>
+            <ComboBoxItem>灰色枪声</ComboBoxItem>
+            <ComboBoxItem>电池</ComboBoxItem>
+            <ComboBoxItem>炯！（雪山图标）</ComboBoxItem>
+            <ComboBoxItem>心跳</ComboBoxItem>
+            <ComboBoxItem>尖叫鸡</ComboBoxItem>
+            <ComboBoxItem>狗叫</ComboBoxItem>
+            <ComboBoxItem>猫叫</ComboBoxItem>
+            <ComboBoxItem>叮当（铃铛图标）</ComboBoxItem>
+            <ComboBoxItem>机器人</ComboBoxItem>
+            <ComboBoxItem>受击音效</ComboBoxItem>
+        </ComboBox>
+        <Button Margin="380,155,0,0" VerticalAlignment="Top" Click="PlaySound">试听音效</Button>
+        <TextBlock Margin="500,155,0,0" Name="NoteCount" Text="音符数量：0" />
+        <TextBlock Margin="500,190,0,0" Name="ProgramChange" Text="乐器名称：_" />
+        <Button Margin="25,0,0,0" Click="GenerateIwmXml" Name="XmlForCopyGen">生成</Button>
+        <Button Margin="25,100,0,0" Click="GenerateIwmXml">导出.map文件</Button>
+        <TextBox Height="230" Width="600" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" Name="MapObjects"
+                 Margin="100,210,0,0" />
+        <TextBlock Margin="25,310,0,0">播放样式：</TextBlock>
+        <RadioButton Name="Once" GroupName="Play" Content="播放一次" IsChecked="True" Margin="25,250,0,0" />
+        <RadioButton GroupName="Play" Content="循环播放" Margin="25,300,0,0" />
+        <Button Content="复制" Margin="25,400,0,0" Click="Copy" />
+    </Grid>
+</Window>

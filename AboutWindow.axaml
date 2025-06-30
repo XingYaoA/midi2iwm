@@ -1,0 +1,31 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Height="145" Width="340" CanResize="False"
+        x:Class="midi2iwmAvalonia.AboutWindow"
+        Title="AboutWindow"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,0" Text="关于" />
+        <TextBlock HorizontalAlignment="Left" Margin="5,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run Text="I Wanna Maker MIDI转换器" /><Run Text="   版本：1.0.0" />
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="5,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="作者：" />
+        <HyperlinkButton NavigateUri="https://github.com/XingYaoA/" HorizontalAlignment="Left" Margin="38,40,0,0"
+                         VerticalAlignment="Top">
+            星耀(DDJ-XingYao)
+        </HyperlinkButton>
+        <TextBlock HorizontalAlignment="Left" Margin="5,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                   Text="项目主页:" />
+        <HyperlinkButton NavigateUri="https://github.com/XingYaoA/midi2iwm" HorizontalAlignment="Left"
+                         Margin="64,59,0,0"
+                         VerticalAlignment="Top">
+            https://github.com/XingYaoA/midi2iwm
+        </HyperlinkButton>
+        <TextBlock HorizontalAlignment="Left" Margin="5,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                   Text="欢迎大家来GitHub上提issue和Pull Request！" />
+        <Button Content="关闭" HorizontalAlignment="Left" Margin="215,98,0,0" VerticalAlignment="Center" Width="80"
+                Click="Close" HorizontalContentAlignment="Center" />
+    </Grid>
+</Window>
